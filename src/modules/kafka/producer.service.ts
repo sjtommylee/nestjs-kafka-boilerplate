@@ -11,7 +11,7 @@ export class ProducerService implements OnModuleInit, OnApplicationShutdown {
   private readonly kafka: Kafka;
   constructor() {
     this.kafka = new Kafka({
-      brokers: ['localhost:9092'],
+      brokers: ['kafka:9092'],
     });
     this.producer = this.kafka.producer();
   }

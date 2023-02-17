@@ -13,7 +13,7 @@ export class ConsumerService implements OnApplicationShutdown {
 
   constructor() {
     this.kafka = new Kafka({
-      brokers: ['localhost:9092'],
+      brokers: ['kafka:9092'],
     });
   }
 
