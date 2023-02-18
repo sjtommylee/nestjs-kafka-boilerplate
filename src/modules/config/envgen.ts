@@ -56,4 +56,5 @@ export const generate = () => {
   console.log('Successfully generated environment variables.');
 };
 
-generate();
+// generate();
+console.log('111');
