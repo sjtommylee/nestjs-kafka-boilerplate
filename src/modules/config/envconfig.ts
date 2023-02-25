@@ -1,18 +1,16 @@
 import path from 'path';
+import { Config } from '.';
 
-export type EnvironmentValue = string | number | boolean;
-export type EnvironmentKeyValues = Record<string, EnvironmentValue>;
-
-export interface Config {
-  dir: string;
-  filename: string;
-  variables: EnvironmentKeyValues;
-}
+const BASE_URL = `base-url`;
+const BROKERS = 'test-broker';
 
 export const config: Config = {
   dir: path?.join(__dirname, '../../env'),
   filename: '.app.env.local',
   variables: {
     KAFKA_BROKERS: JSON.stringify(['localhost:9092']),
+    TEST_CONFIG_VAR: 'ENVGEN_TEST',
+    BASE_URL,
+    BROKERS,
   },
 };

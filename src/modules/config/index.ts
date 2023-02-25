@@ -1,6 +1,15 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import path from 'path';
-import { EnvironmentKeyValues, EnvironmentValue, config } from './envconfig';
+import { config } from './envconfig';
+
+export type EnvironmentValue = string | number | boolean;
+export type EnvironmentKeyValues = Record<string, EnvironmentValue>;
+
+export interface Config {
+  dir: string;
+  filename: string;
+  variables: EnvironmentKeyValues;
+}
 
 const DISCLAIMER = [
   '# This is a generated file.',
@@ -38,6 +47,11 @@ export const generate = () => {
   const { filename, dir, variables } = config;
   const dotenv = toDotEnv(variables);
   const filepath = path?.join(dir, filename);
+
+  if (!dir) {
+    console.error('Error: Directory path not defined in config.');
+    return;
+  }
 
   fs.rmSync(filepath, {
     force: true,
