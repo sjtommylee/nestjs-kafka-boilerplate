@@ -10,7 +10,7 @@ export interface Config {
 }
 
 export const config: Config = {
-  dir: path.join(__dirname, '../../env'),
+  dir: path?.join(__dirname, '../../env'),
   filename: '.app.env.local',
   variables: {
     KAFKA_BROKERS: JSON.stringify(['localhost:9092']),

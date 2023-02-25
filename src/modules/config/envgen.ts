@@ -37,7 +37,7 @@ const toDotEnv = (environmentVariable: EnvironmentKeyValues) => {
 export const generate = () => {
   const { filename, dir, variables } = config;
   const dotenv = toDotEnv(variables);
-  const filepath = path.join(dir, filename);
+  const filepath = path?.join(dir, filename);
 
   fs.rmSync(filepath, {
     force: true,
@@ -56,5 +56,4 @@ export const generate = () => {
   console.log('Successfully generated environment variables.');
 };
 
-// generate();
-console.log('111');
+generate();
